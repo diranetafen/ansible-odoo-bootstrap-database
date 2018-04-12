@@ -1,5 +1,33 @@
 ---
-- hosts: localhost
-  remote_user: root
-  roles:
-    - bootstrap
+  - hosts: localhost
+    connection: local
+    remote_user: root
+    become: true
+    roles:
+      - { role: ../ansible-odoo-bootstrap-database }
+    vars:
+      # Odoo connection info
+      odoo_super_admin_password: admin
+      odoo_new_super_admin_password: password
+      odoo_admin_login: admin
+      odoo_admin_password: password
+      odoo_database_name: test_db
+      odoo_host: 127.0.0.1
+      odoo_port: 80
+      odoo_url: "http://127.0.0.1"
+      odoo_timeout_backup: 240
+      odoo_language: fr_FR
+      odoo_load_demo_data: False
+      odoo_database_name_to_detele: ["test_db"]
+      odoo_database_restore_file: "/tmp/test_db.zip"
+      odoo_database_backup_file: test_db.zip
+
+      # Tempory file created on target host tablet
+      backup_database_script_dest: backup_database.py
+      create_database_script_dest: create_database.py
+      delete_database_script_dest: delete_database.py
+      restore_database_script_dest: restore_database.py
+      change_super_admin_password_script_dest: change_super_admin_password.py.j2
+      restore_database_file_dest: test_db.zip
+
+      tablet_user: root
