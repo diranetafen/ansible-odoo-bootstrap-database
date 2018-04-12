@@ -1,0 +1,11 @@
+import sys
+import odoorpc
+
+host = '{{odoo_host}}'
+port = {{odoo_port}}
+new_super_admin_password = "{{odoo_new_super_admin_password}}"
+
+{% for db in odoo_database_name_to_detele %}
+odoo = odoorpc.ODOO(host, port=port)
+odoo.db.drop(new_super_admin_password, "{{ db }}")
+{% endfor %}

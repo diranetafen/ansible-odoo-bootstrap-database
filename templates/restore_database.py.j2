@@ -1,0 +1,18 @@
+import sys
+import odoorpc
+import zipfile
+
+db_name = '{{odoo_database_name}}'
+user = '{{odoo_admin_login}}'
+passwd = '{{odoo_admin_password}}'
+host = '{{odoo_host}}'
+port = {{odoo_port}}
+new_super_admin_password = "{{odoo_new_super_admin_password}}"
+database_creation_timeout = {{odoo_timeout_backup}}
+
+with open("/tmp/{{restore_database_file_dest}}") as dump_file:
+  odoo = odoorpc.ODOO(host, port=port)
+  timeout_backup = odoo.config['timeout']
+  odoo.config['timeout'] = database_creation_timeout
+  odoo.db.restore(new_super_admin_password, db_name, dump_file)
+  odoo.config['timeout'] = timeout_backup

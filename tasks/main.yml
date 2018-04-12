@@ -1,0 +1,17 @@
+---
+# tasks file for bootstrap
+- include: odoo_create_database.yml
+  tags:
+    - database_create
+- include: odoo_delete_database.yml
+  tags:
+    - database_delete
+- include: odoo_backup_database.yml
+  tags:
+    - database_backup
+- include: odoo_restore_database.yml
+  tags:
+    - database_restore
+- include: odoo_change_super_admin_password.yml
+  tags:
+    - change_super_admin_password
