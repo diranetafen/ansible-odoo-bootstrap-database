@@ -9,7 +9,7 @@ port = {{odoo_port}}
 new_super_admin_password = "{{odoo_new_super_admin_password}}"
 database_creation_timeout = {{odoo_timeout_backup}}
 language = "{{odoo_language}}"
-load_demo_data = "{{odoo_load_demo_data}}"
+load_demo_data = {{odoo_load_demo_data}}
 
 odoo = odoorpc.ODOO(host, port=port)
 timeout_backup = odoo.config['timeout']
