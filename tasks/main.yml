@@ -1,5 +1,8 @@
 ---
 # tasks file for bootstrap
+- include: install_requirements.yml
+  tags:
+    - always
 - include: odoo_create_database.yml
   tags:
     - database_create
