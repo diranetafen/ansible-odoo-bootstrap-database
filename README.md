@@ -45,7 +45,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: servers
       user: root
-      become: yes
+      become: yes 
       gather_facts: false
 
       pre_tasks:
