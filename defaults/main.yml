@@ -21,7 +21,7 @@ backup_database_script_dest: backup_database.py
 create_database_script_dest: create_database.py
 delete_database_script_dest: delete_database.py
 restore_database_script_dest: restore_database.py
-change_super_admin_password_script_dest: change_super_admin_password.py.j2
+change_super_admin_password_script_dest: change_super_admin_password.py
 restore_database_file_dest: test_db.zip
 
 tablet_user: pi
