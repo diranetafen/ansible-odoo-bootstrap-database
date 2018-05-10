@@ -14,5 +14,5 @@ with open("/tmp/{{restore_database_file_dest}}") as dump_file:
   odoo = odoorpc.ODOO(host, port=port)
   timeout_backup = odoo.config['timeout']
   odoo.config['timeout'] = database_creation_timeout
-  odoo.db.restore(new_super_admin_password, db_name, dump_file)
+  odoo.db.restore(new_super_admin_password, db_name, dump_file, copy={{ odoo_restore_database_copy }})
   odoo.config['timeout'] = timeout_backup

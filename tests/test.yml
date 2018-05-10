@@ -2,7 +2,7 @@
   - hosts: localhost
     connection: local
     remote_user: root
-    become: yes 
+    become: yes
     roles:
       - { role: ../ansible-odoo-bootstrap-database }
     vars:
@@ -18,6 +18,7 @@
       odoo_timeout_backup: 240
       odoo_language: fr_FR
       odoo_load_demo_data: False
+      odoo_restore_database_copy: True
       odoo_database_name_to_detele: ["test_db"]
       odoo_database_restore_file: "/tmp/test_db.zip"
       odoo_database_backup_file: test_db.zip
